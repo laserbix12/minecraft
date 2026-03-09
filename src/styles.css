@@ -1,1 +1,455 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* =========================================
+   VARIABLES Y CONFIGURACIÓN (TEMA PREMIUM)
+   ========================================= */
+:root {
+  --color-primary: #43a047;       /* Verde Esmeralda */
+  --color-primary-dark: #2e7d32;
+  --color-accent: #ffca28;        /* Dorado para detalles VIP */
+  --color-bg-dark: #121212;       /* Fondo principal muy oscuro */
+  --color-bg-card: #1e1e1e;       /* Fondo de tarjetas */
+  --color-text-main: #e0e0e0;
+  --color-text-muted: #a0a0a0;
+  --color-border: #333333;
+
+  --font-heading: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-body: 'Roboto', Helvetica, Arial, sans-serif;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-body);
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-main);
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+/* =========================================
+   SCROLLBAR PERSONALIZADO ESTILO MINECRAFT
+   ========================================= */
+/* Ancho de la barra (cuadrada y gruesa como un bloque) */
+::-webkit-scrollbar {
+  width: 14px;
+}
+
+/* El fondo por donde se desliza la barra (estilo piedra oscura) */
+::-webkit-scrollbar-track {
+  background: #0f0f0f;
+  border-left: 1px solid var(--color-border);
+}
+
+/* El "pulgar" o barra que agarras para bajar (estilo bloque de tierra/pasto) */
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary-dark);
+  border: 3px solid #0f0f0f; /* Borde para dar efecto flotante */
+  border-radius: 4px;
+}
+
+/* Color cuando pasas el mouse por encima de la barra */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
+
+/* =========================================
+   HERO SECTION (ENCABEZADO PREMIUM)
+   ========================================= */
+.hero-section {
+  position: relative;
+  text-align: center;
+  padding: 140px 20px 100px;
+  /* Fondo con degradado sobre imagen (simulada con color aquí) */
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)),
+              url('https://www.minecraft.net/content/dam/games/minecraft/key-art/Games_Subnav_Minecraft-300x465.jpg');
+  background-size: cover;
+  background-position: center;
+  border-bottom: 4px solid var(--color-primary);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.hero-content h1 {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  color: #fff;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.8);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  color: #ddd;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+}
+
+.btn-play {
+  background: linear-gradient(45deg, var(--color-primary-dark), var(--color-primary));
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 4px;
+  box-shadow: 0 5px 15px rgba(67, 160, 71, 0.4);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-play:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(67, 160, 71, 0.6);
+}
+
+/* Navegación dentro del Hero */
+.main-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.nav-logo {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--color-primary);
+}
+
+/* =========================================
+   CONTENIDO PRINCIPAL
+   ========================================= */
+.content-section {
+  padding: 60px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Banner de Estado del Servidor */
+.server-status-banner {
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: -40px; /* Efecto de superposición sobre el hero */
+  margin-bottom: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  position: relative;
+  z-index: 10;
+}
+
+.status-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #ef5350;
+  box-shadow: 0 0 8px #ef5350;
+}
+
+.status-indicator.online {
+  background-color: #66bb6a;
+  box-shadow: 0 0 8px #66bb6a;
+}
+
+.separator {
+  color: var(--color-border);
+}
+
+.status-loading {
+  color: var(--color-text-muted);
+  font-style: italic;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+/* Títulos de Sección */
+h2 {
+  text-align: center;
+  color: var(--color-primary);
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 2rem;
+  position: relative;
+}
+
+h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: var(--color-primary-dark);
+  margin: 10px auto 0;
+}
+
+/* Grid de Modalidades */
+.modalities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-bottom: 80px;
+}
+
+.modality-card {
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.modality-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+  border-color: var(--color-primary);
+}
+
+.mod-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.mod-info {
+  padding: 25px;
+}
+
+.mod-info h3 {
+  margin-top: 0;
+  color: var(--color-text-main);
+  font-size: 1.4rem;
+}
+
+.btn-details {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  padding: 10px 20px;
+  margin-top: 15px;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.btn-details:hover {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+/* =========================================
+   SECCIONES EXTRA (Features, Steps, FAQ)
+   ========================================= */
+
+section {
+  margin-bottom: 60px;
+}
+
+/* Features Grid */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  text-align: center;
+}
+
+.feature-card {
+  background: var(--color-bg-card);
+  padding: 30px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  transition: transform 0.3s;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-primary);
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  display: block;
+}
+
+/* Steps */
+.steps-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.step-item {
+  display: flex;
+  align-items: center;
+  background: var(--color-bg-card);
+  padding: 20px;
+  border-radius: 8px;
+  border-left: 4px solid var(--color-primary);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.step-number {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--color-primary);
+  margin-right: 25px;
+  min-width: 40px;
+  opacity: 0.5;
+}
+
+/* FAQ */
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+details {
+  background: var(--color-bg-card);
+  margin-bottom: 15px;
+  padding: 20px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+details:hover {
+  background: #252525;
+}
+
+summary {
+  font-weight: bold;
+  color: var(--color-text-main);
+  list-style: none;
+  position: relative;
+}
+
+details[open] summary {
+  color: var(--color-primary);
+  margin-bottom: 15px;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 10px;
+}
+
+/* =========================================
+   FOOTER PREMIUM (FAT FOOTER)
+   ========================================= */
+.fat-footer {
+  background-color: #0a0a0a;
+  color: var(--color-text-muted);
+  padding: 80px 20px 30px;
+  border-top: 1px solid var(--color-border);
+  margin-top: 100px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-col h3 {
+  color: var(--color-primary);
+  margin-bottom: 25px;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 12px;
+}
+
+.footer-col ul li a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color 0.3s, padding-left 0.3s;
+}
+
+.footer-col ul li a:hover {
+  color: #fff;
+  padding-left: 5px;
+}
+
+/* Mini formulario del footer */
+.mini-form input,
+.mini-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 10px;
+  background-color: #1a1a1a;
+  border: 1px solid var(--color-border);
+  color: #fff;
+  border-radius: 4px;
+  font-family: inherit;
+}
+
+.mini-form button {
+  background-color: var(--color-primary-dark);
+  color: white;
+  border: none;
+  padding: 12px 15px;
+  cursor: pointer;
+  font-weight: bold;
+  width: 100%;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.mini-form button:hover {
+  background-color: var(--color-primary);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 60px;
+  padding-top: 20px;
+  border-top: 1px solid #222;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
